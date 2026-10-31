@@ -6,14 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>The Dog Cabin | Dog Grooming in Rothwell, Kettering</title>
-  <meta name="description" content="Welcome to The Dog Cabin Grooming Salon in Rothwell, Kettering. Beautiful grooming, happy dogs and friendly care. Call 07341 824639 to book.">
+  <meta name="description" content="The Dog Cabin Grooming Salon in Rothwell, Kettering. Grooming, washing and nail trimming for your lovely dogs. Call 07341 824639 to book.">
   <meta name="theme-color" content="#203b32">
 
+  <meta property="og:title" content="The Dog Cabin Grooming Salon">
+  <meta property="og:description" content="Lovely grooming for lovely dogs in Rothwell, Kettering.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.example.com/apricot-poodle.jpg">
+
+  <link rel="icon" href="dog-cabin-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-
-  <link rel="icon" href="assets/dog-cabin-logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 
@@ -22,8 +26,8 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "The Dog Cabin Grooming Salon",
-    "telephone": "+447341824639",
     "description": "Dog grooming salon in Rothwell, Kettering.",
+    "telephone": "+447341824639",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Orton Road",
@@ -31,18 +35,21 @@
       "addressRegion": "Northamptonshire",
       "postalCode": "NN14 6AA",
       "addressCountry": "GB"
-    }
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=100057470019036"
+    ]
   }
   </script>
 </head>
 
 <body>
 
-  <!-- TOP BAR -->
-  <div class="top-bar">
-    <div class="container top-inner">
-      <span>✦ Beautiful grooming in Rothwell, Kettering</span>
-      <a href="tel:+447341824639">Call us: 07341 824639 ↗</a>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement">
+    <div class="container announcement-inner">
+      <span>✳ Lovely grooms. Happy tails. Rothwell, Kettering.</span>
+      <a href="tel:+447341824639">Call 07341 824639 ↗</a>
     </div>
   </div>
 
@@ -51,30 +58,34 @@
     <div class="container header-inner">
 
       <a href="#home" class="brand" aria-label="The Dog Cabin homepage">
-        <img src="assets/dog-cabin-logo.png" alt="The Dog Cabin Grooming Salon logo">
-        <div class="brand-name">
+        <img src="dog-cabin-logo.png" alt="The Dog Cabin logo">
+        <span class="brand-text">
           <strong>The Dog Cabin</strong>
-          <span>GROOMING SALON</span>
-        </div>
+          <small>GROOMING SALON</small>
+        </span>
       </a>
 
       <button class="menu-toggle" id="menuToggle"
-        aria-label="Open navigation"
-        aria-controls="navigation"
-        aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+        aria-expanded="false" aria-controls="mainNav"
+        aria-label="Open menu">
+        <span></span><span></span><span></span>
       </button>
 
-      <nav id="navigation" class="navigation" aria-label="Main navigation">
+      <nav class="nav" id="mainNav" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#gallery">Gallery</a>
         <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
-        <a href="tel:+447341824639" class="btn btn-small">Book Now ↗</a>
+        <a class="facebook-nav"
+           href="https://www.facebook.com/profile.php?id=100057470019036"
+           target="_blank" rel="noopener noreferrer">
+          <span class="fb-icon">f</span> Facebook ↗
+        </a>
+        <a class="button button-small" href="tel:+447341824639">
+          Book Now ↗
+        </a>
       </nav>
 
     </div>
@@ -82,412 +93,479 @@
 
   <main>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero" id="home">
-      <div class="container hero-grid">
+      <div class="container hero-layout">
 
         <div class="hero-content reveal">
-          <span class="eyebrow">✦ WELCOME TO THE DOG CABIN</span>
+          <div class="eyebrow">
+            <span class="eyebrow-line"></span>
+            THE DOG CABIN · ROTHWELL
+          </div>
 
           <h1>
-            A little<br>
-            pampering.<br>
-            A lot of <em>love.</em>
+            Good grooming.<br>
+            Happy <em>dogs.</em>
           </h1>
 
-          <p>
-            Where wagging tails meet wonderful grooming.
-            A friendly dog grooming salon in the heart
-            of Rothwell, Kettering.
+          <p class="hero-description">
+            A little pampering, a lot of love.
+            Welcome to The Dog Cabin — a friendly
+            grooming salon for your four-legged friends
+            in Rothwell, Kettering.
           </p>
 
-          <div class="hero-buttons">
-            <a href="tel:+447341824639" class="btn">
-              Call to Book <span>↗</span>
+          <div class="hero-actions">
+            <a href="tel:+447341824639" class="button">
+              Book a Groom <span>↗</span>
             </a>
-            <a href="#gallery" class="text-button">
-              Meet Our Lovely Dogs ↗
+
+            <a href="#gallery" class="arrow-link">
+              Explore Our Gallery <span>↗</span>
             </a>
           </div>
 
-          <div class="hero-proof">
-            <div class="dog-avatars">
-              <img src="assets/yorkshire-terrier.jpg" alt="">
-              <img src="assets/golden-spaniel.jpg" alt="">
-              <img src="assets/black-spaniel.jpg" alt="">
-            </div>
+          <div class="hero-message">
+            <div class="hero-message-icon">♡</div>
             <div>
-              <strong>Happy dogs. Happy owners.</strong>
-              <span>Lovely feedback from local customers</span>
+              <strong>Every dog deserves to feel special.</strong>
+              <p>A warm welcome for your furry best friend.</p>
             </div>
           </div>
         </div>
 
-        <div class="hero-image-area reveal">
-          <div class="hero-image-frame">
-            <img
-              src="assets/apricot-poodle.jpg"
-              alt="Beautifully groomed apricot poodle"
-              class="hero-image"
-              fetchpriority="high">
+        <div class="hero-visual reveal">
+          <div class="hero-photo-bg"></div>
+
+          <div class="hero-main-photo">
+            <img src="apricot-poodle.jpg"
+                 alt="A freshly groomed apricot poodle"
+                 fetchpriority="high">
           </div>
 
-          <div class="hero-badge">
+          <div class="hero-small-photo">
+            <img src="yorkshire-terrier.jpg"
+                 alt="A happy Yorkshire terrier">
+          </div>
+
+          <div class="hero-round-label">
             <span>FRESHLY</span>
             <strong>✳</strong>
             <span>GROOMED</span>
-          </div>
-
-          <div class="image-label">
-            <span class="green-dot"></span>
-            One of our lovely furry visitors
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- TRUST STRIP -->
-    <div class="trust-strip">
-      <div class="container trust-inner">
-        <span>GOOD HAIR DAYS</span>
+    <!-- BRAND STRIP -->
+    <div class="brand-strip">
+      <div class="container strip-content">
+        <span>GROOMED WITH LOVE</span>
+        <b>✳</b>
+        <span>HAPPY LITTLE FACES</span>
         <b>✳</b>
         <span>WAGGING TAILS</span>
-        <b>✳</b>
-        <span>LOTS OF LOVE</span>
         <b>✳</b>
         <span>ROTHWELL, KETTERING</span>
       </div>
     </div>
 
-    <!-- ABOUT SECTION -->
-    <section class="section about-section" id="about">
-      <div class="container about-grid">
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="container about-layout">
 
-        <div class="about-photo reveal">
-          <img
-            src="assets/golden-spaniel.jpg"
-            alt="Golden spaniel with beautifully groomed ears">
-
-          <div class="photo-card">
-            <span>✳</span>
-            <p>Good grooms.<br><strong>Happy dogs.</strong></p>
+        <div class="about-images reveal">
+          <div class="about-main-photo">
+            <img src="golden-spaniel.jpg"
+                 alt="Golden spaniel after grooming"
+                 loading="lazy">
           </div>
+          <div class="about-badge">♡</div>
+          <span class="photo-caption">THE DOG CABIN FAMILY</span>
         </div>
 
-        <div class="about-text reveal">
-          <span class="eyebrow">✦ A WARM WELCOME</span>
+        <div class="about-content reveal">
+          <span class="section-label">01 / GET TO KNOW US</span>
 
-          <h2>A little salon with <em>lots of heart.</em></h2>
+          <h2>A little salon.<br>
+            <em>A lot of heart.</em>
+          </h2>
 
           <p>
-            We know your dog is part of the family.
-            At The Dog Cabin Grooming Salon, we believe
-            every dog deserves a little extra care and attention.
+            At The Dog Cabin Grooming Salon, we know
+            that your dog is more than just a pet —
+            they're part of the family.
           </p>
 
           <p>
-            From a fresh bath to a lovely new trim, we're
-            here to help your four-legged friend look
-            wonderful and feel their best.
+            We love helping dogs look fresh and feel
+            wonderful, whether it's a gorgeous new groom,
+            a lovely wash or a little nail tidy.
           </p>
 
-          <div class="feature-list">
-            <div><span>♡</span> Friendly and caring approach</div>
-            <div><span>✦</span> Lovely grooming finishes</div>
-            <div><span>⌂</span> Conveniently located in Rothwell</div>
+          <div class="about-points">
+            <div>
+              <span class="point-icon">♡</span>
+              <span>Friendly, caring grooming</span>
+            </div>
+            <div>
+              <span class="point-icon">✳</span>
+              <span>Beautifully groomed dogs</span>
+            </div>
+            <div>
+              <span class="point-icon">⌂</span>
+              <span>Based in Rothwell, Kettering</span>
+            </div>
           </div>
 
-          <a href="#reviews" class="text-button">
-            Read what our customers say ↗
+          <a href="tel:+447341824639" class="arrow-link">
+            Let's Get Your Dog Booked In <span>↗</span>
           </a>
         </div>
 
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="section services-section" id="services">
+    <!-- SERVICES: THREE REDESIGNED EDITORIAL ROWS -->
+    <section class="section services" id="services">
       <div class="container">
 
-        <div class="section-heading reveal">
-          <div>
-            <span class="eyebrow">✦ OUR GROOMING SERVICES</span>
-            <h2>A little TLC, <em>their way.</em></h2>
-          </div>
+        <div class="services-heading reveal">
+          <span class="section-label">02 / WHAT WE DO</span>
+
+          <h2>Looking good.<br>
+            <em>Feeling even better.</em>
+          </h2>
 
           <p>
-            Every dog is unique. Get in touch to discuss
-            the grooming service that's right for yours.
+            A little something for every lovely pup.
+            Explore our main grooming services below.
           </p>
         </div>
 
-        <div class="services-grid">
+        <div class="service-list">
 
-          <article class="service-card reveal">
-            <span class="service-number">01 / GROOMING</span>
-            <div class="service-icon">✂</div>
-            <h3>Grooming & Styling</h3>
-            <p>
-              Beautiful grooming and styling to help
-              your dog's coat look neat, fresh and lovely.
-            </p>
-            <a href="tel:+447341824639">Enquire Now ↗</a>
+          <!-- SERVICE ONE -->
+          <article class="service-feature reveal">
+            <div class="service-picture">
+              <img src="golden-doodle.jpg"
+                   alt="Lovely freshly groomed golden dog"
+                   loading="lazy">
+              <span class="service-image-label">01 / THE FULL LOOK</span>
+            </div>
+
+            <div class="service-info">
+              <span class="service-category">THE DOG CABIN SERVICES</span>
+              <div class="service-symbol">✂</div>
+
+              <h3>Grooming <em>& Styling</em></h3>
+
+              <p>
+                From fluffy makeovers to beautiful tidy
+                trims, our grooming and styling services
+                help your dog look their very best.
+              </p>
+
+              <div class="service-divider"></div>
+
+              <a href="tel:+447341824639" class="service-link">
+                Enquire About Grooming <span>↗</span>
+              </a>
+            </div>
           </article>
 
-          <article class="service-card reveal">
-            <span class="service-number">02 / FRESHEN UP</span>
-            <div class="service-icon">◌</div>
-            <h3>Bath & Freshen Up</h3>
-            <p>
-              A lovely refresh to help keep your
-              furry friend feeling clean and smelling wonderful.
-            </p>
-            <a href="tel:+447341824639">Enquire Now ↗</a>
+          <!-- SERVICE TWO -->
+          <article class="service-feature reverse reveal">
+            <div class="service-picture">
+              <img src="chocolate-spaniel.jpg"
+                   alt="Beautiful chocolate spaniel"
+                   loading="lazy">
+              <span class="service-image-label">02 / THE FRESH FEEL</span>
+            </div>
+
+            <div class="service-info">
+              <span class="service-category">THE DOG CABIN SERVICES</span>
+              <div class="service-symbol">✳</div>
+
+              <h3>Washing <em>& Bathing</em></h3>
+
+              <p>
+                Fresh, clean and ready for cuddles.
+                Give your dog a lovely wash and freshen-up
+                to help them feel comfortable and cared for.
+              </p>
+
+              <div class="service-divider"></div>
+
+              <a href="tel:+447341824639" class="service-link">
+                Enquire About Washing <span>↗</span>
+              </a>
+            </div>
           </article>
 
-          <article class="service-card reveal">
-            <span class="service-number">03 / EXTRA CARE</span>
-            <div class="service-icon">♡</div>
-            <h3>Nails & Hygiene</h3>
-            <p>
-              Those important little finishing touches.
-              Call us to discuss your dog's grooming needs.
-            </p>
-            <a href="tel:+447341824639">Enquire Now ↗</a>
-          </article>
+          <!-- SERVICE THREE -->
+          <article class="service-feature reveal">
+            <div class="service-picture">
+              <img src="black-spaniel.jpg"
+                   alt="Black spaniel looking smart after grooming"
+                   loading="lazy">
+              <span class="service-image-label">03 / LITTLE FINISHING TOUCHES</span>
+            </div>
 
-          <article class="service-card reveal">
-            <span class="service-number">04 / SPECIALIST</span>
-            <div class="service-icon">✳</div>
-            <h3>Hand Stripping</h3>
-            <p>
-              Ask us about hand stripping,
-              coat suitability and available appointments.
-            </p>
-            <a href="tel:+447341824639">Enquire Now ↗</a>
+            <div class="service-info">
+              <span class="service-category">THE DOG CABIN SERVICES</span>
+              <div class="service-symbol">♡</div>
+
+              <h3>Nail <em>Trimming</em></h3>
+
+              <p>
+                It's the little things that matter.
+                Keep your dog's nails neat and maintained
+                with a professional nail trim.
+              </p>
+
+              <div class="service-divider"></div>
+
+              <a href="tel:+447341824639" class="service-link">
+                Enquire About Nails <span>↗</span>
+              </a>
+            </div>
           </article>
 
         </div>
 
-        <p class="services-note">
-          ♡ Not sure what your dog needs?
-          <a href="tel:+447341824639">Give us a call on 07341 824639</a>
-        </p>
+        <div class="services-bottom reveal">
+          <span>Not sure which service your dog needs?</span>
+          <a href="tel:+447341824639">
+            Give us a call — 07341 824639 ↗
+          </a>
+        </div>
 
       </div>
     </section>
 
-    <!-- DOG GALLERY -->
-    <section class="section gallery-section" id="gallery">
+    <!-- GALLERY -->
+    <section class="section gallery" id="gallery">
       <div class="container">
 
         <div class="center-heading reveal">
-          <span class="eyebrow">✦ THE FURRY FACES</span>
-          <h2>Our very good <em>dogs.</em></h2>
+          <span class="section-label">03 / THE DOG CABIN GALLERY</span>
+          <h2>Some very <em>good dogs.</em></h2>
           <p>
-            The stars of the salon! Take a peek at some
-            of the lovely faces from The Dog Cabin.
+            Meet a few of the gorgeous furry faces
+            who've visited The Dog Cabin.
           </p>
         </div>
 
         <div class="gallery-grid">
 
-          <button class="gallery-item gallery-tall reveal"
-            data-image="assets/apricot-poodle.jpg"
-            data-alt="Beautifully groomed apricot poodle"
-            aria-label="Enlarge apricot poodle photo">
-            <img src="assets/apricot-poodle.jpg"
-              alt="Apricot poodle after grooming" loading="lazy">
-            <span class="gallery-arrow">↗</span>
+          <button class="gallery-item reveal"
+                  data-full="apricot-poodle.jpg"
+                  aria-label="View apricot poodle photo">
+            <img src="apricot-poodle.jpg"
+                 alt="Apricot poodle"
+                 loading="lazy">
+            <span class="gallery-zoom">↗</span>
           </button>
 
           <button class="gallery-item reveal"
-            data-image="assets/black-spaniel.jpg"
-            data-alt="Black spaniel with a purple bow"
-            aria-label="Enlarge black spaniel photo">
-            <img src="assets/black-spaniel.jpg"
-              alt="Black spaniel with purple bow" loading="lazy">
-            <span class="gallery-arrow">↗</span>
+                  data-full="black-spaniel.jpg"
+                  aria-label="View black spaniel photo">
+            <img src="black-spaniel.jpg"
+                 alt="Black spaniel with a purple bow"
+                 loading="lazy">
+            <span class="gallery-zoom">↗</span>
           </button>
 
           <button class="gallery-item reveal"
-            data-image="assets/yorkshire-terrier.jpg"
-            data-alt="Happy Yorkshire terrier"
-            aria-label="Enlarge Yorkshire terrier photo">
-            <img src="assets/yorkshire-terrier.jpg"
-              alt="Happy Yorkshire terrier" loading="lazy">
-            <span class="gallery-arrow">↗</span>
+                  data-full="yorkshire-terrier.jpg"
+                  aria-label="View Yorkshire terrier photo">
+            <img src="yorkshire-terrier.jpg"
+                 alt="Happy Yorkshire terrier"
+                 loading="lazy">
+            <span class="gallery-zoom">↗</span>
           </button>
 
           <button class="gallery-item reveal"
-            data-image="assets/golden-doodle.jpg"
-            data-alt="Fluffy golden dog after grooming"
-            aria-label="Enlarge golden dog photo">
-            <img src="assets/golden-doodle.jpg"
-              alt="Fluffy golden dog" loading="lazy">
-            <span class="gallery-arrow">↗</span>
-          </button>
-
-          <button class="gallery-item gallery-wide reveal"
-            data-image="assets/chocolate-spaniel.jpg"
-            data-alt="Beautiful chocolate spaniel"
-            aria-label="Enlarge chocolate spaniel photo">
-            <img src="assets/chocolate-spaniel.jpg"
-              alt="Chocolate brown spaniel" loading="lazy">
-            <span class="gallery-arrow">↗</span>
+                  data-full="golden-spaniel.jpg"
+                  aria-label="View golden spaniel photo">
+            <img src="golden-spaniel.jpg"
+                 alt="Golden spaniel"
+                 loading="lazy">
+            <span class="gallery-zoom">↗</span>
           </button>
 
           <button class="gallery-item reveal"
-            data-image="assets/golden-spaniel.jpg"
-            data-alt="Golden spaniel with silky ears"
-            aria-label="Enlarge golden spaniel photo">
-            <img src="assets/golden-spaniel.jpg"
-              alt="Golden spaniel" loading="lazy">
-            <span class="gallery-arrow">↗</span>
+                  data-full="golden-doodle.jpg"
+                  aria-label="View golden dog photo">
+            <img src="golden-doodle.jpg"
+                 alt="Fluffy golden dog"
+                 loading="lazy">
+            <span class="gallery-zoom">↗</span>
           </button>
 
           <button class="gallery-item reveal"
-            data-image="assets/golden-labrador.jpg"
-            data-alt="Golden Labrador"
-            aria-label="Enlarge Labrador photo">
-            <img src="assets/golden-labrador.jpg"
-              alt="Golden Labrador" loading="lazy">
-            <span class="gallery-arrow">↗</span>
+                  data-full="chocolate-spaniel.jpg"
+                  aria-label="View chocolate spaniel photo">
+            <img src="chocolate-spaniel.jpg"
+                 alt="Chocolate spaniel"
+                 loading="lazy">
+            <span class="gallery-zoom">↗</span>
+          </button>
+
+          <button class="gallery-item reveal"
+                  data-full="golden-labrador.jpg"
+                  aria-label="View Labrador photo">
+            <img src="golden-labrador.jpg"
+                 alt="Golden Labrador"
+                 loading="lazy">
+            <span class="gallery-zoom">↗</span>
           </button>
 
         </div>
 
-        <p class="gallery-note">
-          Made with love, one lovely dog at a time. ♡
-        </p>
+        <div class="gallery-footer">
+          <p>Little faces, big personalities. ♡</p>
+
+          <a href="https://www.facebook.com/profile.php?id=100057470019036"
+             target="_blank" rel="noopener noreferrer"
+             class="arrow-link">
+            See More on Facebook ↗
+          </a>
+        </div>
 
       </div>
     </section>
 
-    <!-- CUSTOMER REVIEWS -->
-    <section class="section reviews-section" id="reviews">
+    <!-- REVIEWS -->
+    <section class="section reviews" id="reviews">
       <div class="container">
 
-        <div class="reviews-heading">
+        <div class="reviews-top reveal">
           <div>
-            <span class="eyebrow">✦ KIND WORDS</span>
-            <h2>The lovely things <em>they say.</em></h2>
+            <span class="section-label">04 / KIND WORDS</span>
+            <h2>Don't just take <em>our word.</em></h2>
           </div>
 
-          <div class="review-controls">
-            <button id="reviewPrev" aria-label="Previous reviews">←</button>
-            <button id="reviewNext" aria-label="Next reviews">→</button>
-          </div>
+          <a class="button button-light"
+             href="https://www.facebook.com/profile.php?id=100057470019036"
+             target="_blank" rel="noopener noreferrer">
+            <span class="fb-icon">f</span> Visit Our Facebook ↗
+          </a>
         </div>
 
-        <div class="reviews-track" id="reviewsTrack">
+        <div class="reviews-grid">
 
-          <article class="review-card">
-            <span class="quote-icon">“</span>
+          <article class="review-card reveal">
+            <div class="review-quote">“</div>
             <p>
-              Brilliant job, fast too! Will definitely
-              be back, highly recommended.
+              Brilliant job, fast too!
+              Will definitely be back,
+              highly recommended.
             </p>
-            <div class="review-author">
-              <strong>Shaun Chandler</strong>
-              <span>Facebook Recommendation · November 2021</span>
-            </div>
+            <div class="review-divider"></div>
+            <strong>Shaun Chandler</strong>
+            <span>Facebook recommendation · 2021</span>
           </article>
 
-          <article class="review-card">
-            <span class="quote-icon">“</span>
+          <article class="review-card reveal">
+            <div class="review-quote">“</div>
             <p>
-              Had my three Borders hand stripped here
-              for the first time, what an amazing job.
+              Had my three Borders hand stripped
+              here for the first time,
+              what an amazing job.
             </p>
-            <div class="review-author">
-              <strong>Hayley Harris</strong>
-              <span>Facebook Recommendation · October 2021</span>
-            </div>
+            <div class="review-divider"></div>
+            <strong>Hayley Harris</strong>
+            <span>Facebook recommendation · 2021</span>
           </article>
 
-          <article class="review-card">
-            <span class="quote-icon">“</span>
+          <article class="review-card reveal">
+            <div class="review-quote">“</div>
             <p>
-              Rufo always looks brilliant when he comes out!!
+              Really professional and at a good
+              price. I won't go anywhere else.
             </p>
-            <div class="review-author">
-              <strong>Kev G Oakes</strong>
-              <span>Facebook Recommendation · October 2022</span>
-            </div>
-          </article>
-
-          <article class="review-card">
-            <span class="quote-icon">“</span>
-            <p>
-              Really professional and at a good price.
-              I won't go anywhere else.
-            </p>
-            <div class="review-author">
-              <strong>Kelly Amanda Johnson</strong>
-              <span>Facebook Recommendation · November 2022</span>
-            </div>
+            <div class="review-divider"></div>
+            <strong>Kelly Amanda Johnson</strong>
+            <span>Facebook recommendation · 2022</span>
           </article>
 
         </div>
 
-        <p class="review-note">
-          Excerpts from customer recommendations shared with us.
+        <p class="reviews-note">
+          Customer review excerpts from the Facebook screenshots provided.
         </p>
 
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section faq-section" id="faq">
-      <div class="container faq-grid">
+    <section class="section faq" id="faq">
+      <div class="container faq-layout">
 
         <div class="faq-intro reveal">
-          <span class="eyebrow">✦ GOOD TO KNOW</span>
+          <span class="section-label">05 / GOOD TO KNOW</span>
+
           <h2>A few little <em>questions.</em></h2>
+
           <p>
-            New to The Dog Cabin? Here's some helpful
-            information before your visit.
+            Planning your dog's next visit?
+            Here's some useful information.
           </p>
-          <a href="tel:+447341824639" class="text-button">
-            Have a question? Call us ↗
+
+          <a href="tel:+447341824639" class="arrow-link">
+            Ask Us Anything ↗
           </a>
         </div>
 
         <div class="faq-list reveal">
 
           <details>
-            <summary>How do I book an appointment? <span>+</span></summary>
+            <summary>
+              How do I book my dog in?
+              <span class="faq-plus">+</span>
+            </summary>
             <p>
-              Simply give us a call on
+              Simply call us on
               <a href="tel:+447341824639">07341 824639</a>
-              to discuss appointments.
+              to discuss an appointment.
             </p>
           </details>
 
           <details>
-            <summary>How much does grooming cost? <span>+</span></summary>
+            <summary>
+              How much does a groom cost?
+              <span class="faq-plus">+</span>
+            </summary>
             <p>
-              Prices can vary depending on your dog's coat,
-              size and grooming needs. Call us for the latest prices.
+              Prices depend on your dog's size, coat
+              and grooming requirements. Give us a
+              call for the latest pricing.
             </p>
           </details>
 
           <details>
-            <summary>Can I enquire about puppy grooming? <span>+</span></summary>
+            <summary>
+              Can I book a wash or nail trim?
+              <span class="faq-plus">+</span>
+            </summary>
             <p>
-              Of course! Get in touch to discuss your
-              puppy's first grooming experience.
+              Contact us to discuss washing, nail
+              trimming and appointment availability.
             </p>
           </details>
 
           <details>
-            <summary>Where are you located? <span>+</span></summary>
+            <summary>
+              Where can I find the salon?
+              <span class="faq-plus">+</span>
+            </summary>
             <p>
               We're on Orton Road in Rothwell,
               Kettering, Northamptonshire.
-              See our directions below.
+              Use the directions link below.
             </p>
           </details>
 
@@ -497,65 +575,79 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="contact-section" id="contact">
-      <div class="container contact-grid">
+    <section class="contact" id="contact">
+      <div class="container contact-layout">
 
         <div class="contact-content reveal">
-          <span class="eyebrow">✦ COME SAY HELLO</span>
+          <span class="section-label">06 / COME SAY HELLO</span>
 
           <h2>
-            Your dog's next <em>good hair day</em>
-            starts here.
+            Ready for a <em>fresh new look?</em>
           </h2>
 
           <p>
-            Ready for a fresh new look?
-            We'd love to hear from you and meet your
-            four-legged friend.
+            Your dog's next good hair day starts
+            with a phone call. We'd love to hear
+            from you.
           </p>
 
-          <div class="contact-details">
+          <div class="contact-items">
 
-            <div class="contact-detail">
-              <span class="detail-icon">⌖</span>
+            <div class="contact-item">
+              <div class="contact-icon">☎</div>
               <div>
-                <strong>Find Our Salon</strong>
-                <p>Orton Road, Rothwell<br>Kettering, NN14 6AA</p>
+                <span>GIVE US A CALL</span>
+                <a href="tel:+447341824639">
+                  07341 824639
+                </a>
               </div>
             </div>
 
-            <div class="contact-detail">
-              <span class="detail-icon">☎</span>
+            <div class="contact-item">
+              <div class="contact-icon">⌖</div>
               <div>
-                <strong>Call to Book</strong>
-                <a href="tel:+447341824639">07341 824639</a>
+                <span>FIND THE DOG CABIN</span>
+                <p>
+                  Orton Road, Rothwell<br>
+                  Kettering, NN14 6AA
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon fb-icon">f</div>
+              <div>
+                <span>KEEP UP WITH US</span>
+                <a href="https://www.facebook.com/profile.php?id=100057470019036"
+                   target="_blank" rel="noopener noreferrer">
+                  Visit Our Facebook Page ↗
+                </a>
               </div>
             </div>
 
           </div>
 
-          <div class="contact-actions">
-            <a class="btn btn-cream" href="tel:+447341824639">
+          <div class="contact-buttons">
+            <a href="tel:+447341824639"
+               class="button button-light">
               Call to Book ↗
             </a>
 
-            <a class="btn btn-outline"
-              href="https://www.google.com/maps/search/?api=1&amp;query=The%20Dog%20Cabin%20Grooming%20Salon%2C%20Orton%20Road%2C%20Rothwell%2C%20Kettering"
-              target="_blank"
-              rel="noopener noreferrer">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=The%20Dog%20Cabin%20Grooming%20Salon%2C%20Orton%20Road%2C%20Rothwell%2C%20Kettering%20NN14%206AA"
+               target="_blank" rel="noopener noreferrer"
+               class="button button-outline">
               Get Directions ↗
             </a>
           </div>
-
         </div>
 
-        <div class="contact-photo reveal">
-          <img src="assets/golden-doodle.jpg"
-            alt="Lovely freshly groomed golden dog"
-            loading="lazy">
-          <div class="contact-sticker">
-            SEE YOU<br>SOON!
-            <strong>♡</strong>
+        <div class="contact-image reveal">
+          <img src="golden-labrador.jpg"
+               alt="Golden Labrador at The Dog Cabin"
+               loading="lazy">
+
+          <div class="contact-bubble">
+            SEE YOU<br>SOON!<br><span>♡</span>
           </div>
         </div>
 
@@ -566,54 +658,76 @@
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container footer-grid">
+    <div class="container footer-main">
 
-      <div class="footer-brand">
-        <img src="assets/dog-cabin-logo.png"
-          alt="The Dog Cabin Grooming Salon logo">
+      <div class="footer-about">
+        <img src="dog-cabin-logo.png"
+             alt="The Dog Cabin Grooming Salon logo">
+
         <p>
-          Lovely grooms and happy tails
-          in the heart of Rothwell.
+          Lovely grooming, happy dogs and lots of
+          love in Rothwell, Kettering.
         </p>
       </div>
 
-      <div class="footer-links">
-        <h4>Explore</h4>
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <a href="#home">Home</a>
         <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#gallery">Our Gallery</a>
+        <a href="#services">Our Services</a>
+        <a href="#gallery">Gallery</a>
         <a href="#reviews">Reviews</a>
       </div>
 
-      <div class="footer-links">
-        <h4>Visit & Book</h4>
-        <p>Orton Road, Rothwell<br>Kettering, NN14 6AA</p>
+      <div class="footer-column">
+        <h3>Get In Touch</h3>
         <a href="tel:+447341824639">07341 824639</a>
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=The%20Dog%20Cabin%20Grooming%20Salon%2C%20Rothwell%2C%20Kettering"
-          target="_blank" rel="noopener noreferrer">
-          Get Directions ↗
+        <p>Orton Road, Rothwell<br>Kettering, NN14 6AA</p>
+        <a href="https://www.facebook.com/profile.php?id=100057470019036"
+           target="_blank" rel="noopener noreferrer">
+          Facebook ↗
         </a>
       </div>
 
     </div>
 
     <div class="container footer-bottom">
-      <span>© <span id="currentYear"></span> The Dog Cabin Grooming Salon</span>
-      <span>Made with love for happy dogs ♡</span>
+      <span>© <span id="year"></span> The Dog Cabin Grooming Salon</span>
+      <span>Made with love for little paws ♡</span>
     </div>
+
+    <!-- WEBSITE DESIGNER CREDIT -->
+    <div class="designer-bar">
+      <div class="container designer-inner">
+        <span class="designer-label">Website made by</span>
+        <div class="designer-brand">
+          <span class="designer-logo">S<span>✦</span></span>
+          <strong>Sabr &amp; Shawq</strong>
+        </div>
+      </div>
+    </div>
+
   </footer>
 
-  <!-- MOBILE CALL BUTTON -->
-  <a class="mobile-call" href="tel:+447341824639">
-    ☎ &nbsp; Call to Book · 07341 824639
+  <!-- MOBILE BOOK NOW -->
+  <a class="mobile-book" href="tel:+447341824639">
+    ☎ &nbsp; Call to Book — 07341 824639
   </a>
 
-  <!-- IMAGE LIGHTBOX -->
-  <dialog id="lightbox" class="lightbox" aria-label="Enlarged dog gallery photo">
+  <!-- GALLERY POPUP -->
+  <dialog class="lightbox" id="lightbox"
+          aria-label="Enlarged gallery photo">
     <button class="lightbox-close" id="lightboxClose"
-      aria-label="Close photo">×</button>
-    <img id="lightboxImage" src="assets/apricot-poodle.jpg" alt="">
-    <p id="lightboxCaption"></p>
+            aria-label="Close photo">×</button>
+
+    <img src="apricot-poodle.jpg"
+         alt="" id="lightboxImg">
+
+    <div class="lightbox-controls">
+      <button id="galleryPrev" aria-label="Previous photo">←</button>
+      <span id="galleryCount"></span>
+      <button id="galleryNext" aria-label="Next photo">→</button>
+    </div>
   </dialog>
 
 </body>
