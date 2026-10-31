@@ -4,72 +4,70 @@
    Website JavaScript
 ===================================== */
 
-// CURRENT YEAR
+// COPYRIGHT YEAR
 
-const year = document.getElementById("currentYear");
+const yearElement = document.getElementById("year");
 
-if (year) {
-  year.textContent = new Date().getFullYear();
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
 }
 
 
-// MOBILE NAVIGATION
+// MOBILE MENU
 
 const menuToggle = document.getElementById("menuToggle");
-const navigation = document.getElementById("navigation");
+const mainNav = document.getElementById("mainNav");
 
-function closeMenu() {
-  if (!menuToggle || !navigation) return;
+function closeMobileMenu() {
+  if (!menuToggle || !mainNav) return;
 
-  navigation.classList.remove("open");
-
+  mainNav.classList.remove("open");
   menuToggle.setAttribute("aria-expanded", "false");
-  menuToggle.setAttribute("aria-label", "Open navigation");
+  menuToggle.setAttribute("aria-label", "Open menu");
 }
 
-if (menuToggle && navigation) {
+if (menuToggle && mainNav) {
 
   menuToggle.addEventListener("click", function () {
 
-    const isOpen = navigation.classList.toggle("open");
+    const isOpen = mainNav.classList.toggle("open");
 
-    menuToggle.setAttribute(
-      "aria-expanded",
-      String(isOpen)
-    );
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
 
     menuToggle.setAttribute(
       "aria-label",
-      isOpen ? "Close navigation" : "Open navigation"
+      isOpen ? "Close menu" : "Open menu"
     );
 
   });
 
-  // Close menu when a link is clicked
-
-  navigation.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", closeMenu);
+  mainNav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", closeMobileMenu);
   });
-
-  // Close menu when clicking outside
 
   document.addEventListener("click", function (event) {
 
     if (
-      !navigation.contains(event.target) &&
+      !mainNav.contains(event.target) &&
       !menuToggle.contains(event.target)
     ) {
-      closeMenu();
+      closeMobileMenu();
     }
 
   });
 
-  // Close menu with Escape key
-
   document.addEventListener("keydown", function (event) {
 
     if (event.key === "Escape") {
-      closeMenu();
+      closeMobileMenu();
+    }
+
+  });
+
+  window.addEventListener("resize", function () {
+
+    if (window.innerWidth > 1000) {
+      closeMobileMenu();
     }
 
   });
@@ -77,15 +75,15 @@ if (menuToggle && navigation) {
 }
 
 
-// SMOOTH SCROLL REVEAL
+// SCROLL REVEAL ANIMATIONS
 
-const reduceMotion = window.matchMedia(
+const reducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
 
 if (
   "IntersectionObserver" in window &&
-  !reduceMotion
+  !reducedMotion
 ) {
 
   const revealElements = document.querySelectorAll(".reveal");
@@ -98,7 +96,6 @@ if (
         if (entry.isIntersecting) {
 
           entry.target.classList.add("visible");
-
           observer.unobserve(entry.target);
 
         }
@@ -107,12 +104,12 @@ if (
 
     },
     {
-      threshold: 0.08,
-      rootMargin: "0px 0px 30px 0px"
+      threshold: 0.05,
+      rootMargin: "0px 0px 40px 0px"
     }
   );
 
-  document.documentElement.classList.add("can-reveal");
+  document.documentElement.classList.add("js-ready");
 
   revealElements.forEach(function (element) {
     observer.observe(element);
@@ -121,156 +118,91 @@ if (
 }
 
 
-// REVIEW CAROUSEL
+// GALLERY LIGHTBOX
 
-const reviewsTrack = document.getElementById("reviewsTrack");
-
-const reviewPrev = document.getElementById("reviewPrev");
-
-const reviewNext = document.getElementById("reviewNext");
-
-function scrollReviews(direction) {
-
-  if (!reviewsTrack) return;
-
-  const reviewCard = reviewsTrack.querySelector(".review-card");
-
-  if (!reviewCard) return;
-
-  const gap = parseFloat(
-    getComputedStyle(reviewsTrack).gap
-  ) || 18;
-
-  const scrollAmount = reviewCard.offsetWidth + gap;
-
-  const maxScroll =
-    reviewsTrack.scrollWidth - reviewsTrack.clientWidth;
-
-  let newPosition =
-    reviewsTrack.scrollLeft + scrollAmount * direction;
-
-  // Loop back to the beginning or end
-
-  if (newPosition > maxScroll + 5) {
-    newPosition = 0;
-  }
-
-  if (newPosition < -5) {
-    newPosition = maxScroll;
-  }
-
-  reviewsTrack.scrollTo({
-    left: newPosition,
-    behavior: reduceMotion ? "auto" : "smooth"
-  });
-
-}
-
-if (reviewPrev) {
-  reviewPrev.addEventListener("click", function () {
-    scrollReviews(-1);
-  });
-}
-
-if (reviewNext) {
-  reviewNext.addEventListener("click", function () {
-    scrollReviews(1);
-  });
-}
-
-
-// IMAGE GALLERY LIGHTBOX
-
-const galleryItems = document.querySelectorAll(".gallery-item");
+const galleryItems = Array.from(
+  document.querySelectorAll(".gallery-item")
+);
 
 const lightbox = document.getElementById("lightbox");
-
-const lightboxImage = document.getElementById("lightboxImage");
-
-const lightboxCaption = document.getElementById("lightboxCaption");
-
+const lightboxImg = document.getElementById("lightboxImg");
 const lightboxClose = document.getElementById("lightboxClose");
 
-let currentImageIndex = 0;
+const galleryPrev = document.getElementById("galleryPrev");
+const galleryNext = document.getElementById("galleryNext");
+const galleryCount = document.getElementById("galleryCount");
+
+let activeImageIndex = 0;
 
 
-// Open a selected gallery photo
+// DISPLAY SELECTED IMAGE
 
-function openGalleryImage(index) {
+function showGalleryImage(index) {
 
-  const selected = galleryItems[index];
+  if (!galleryItems.length || !lightboxImg) return;
 
-  if (!selected || !lightboxImage) return;
+  activeImageIndex =
+    (index + galleryItems.length) % galleryItems.length;
 
-  currentImageIndex = index;
+  const item = galleryItems[activeImageIndex];
+  const picture = item.querySelector("img");
 
-  lightboxImage.src = selected.dataset.image;
+  lightboxImg.src = item.dataset.full;
+  lightboxImg.alt = picture ? picture.alt : "Dog gallery photo";
 
-  lightboxImage.alt = selected.dataset.alt || "Dog gallery photo";
-
-  if (lightboxCaption) {
-    lightboxCaption.textContent = selected.dataset.alt || "";
+  if (galleryCount) {
+    galleryCount.textContent =
+      (activeImageIndex + 1) + " / " + galleryItems.length;
   }
 
 }
 
 
-// Next or previous gallery photo
+// CHANGE PHOTO
 
-function changeGalleryImage(direction) {
-
-  currentImageIndex =
-    (currentImageIndex + direction + galleryItems.length)
-    % galleryItems.length;
-
-  openGalleryImage(currentImageIndex);
-
+function moveGallery(direction) {
+  showGalleryImage(activeImageIndex + direction);
 }
 
 
-// Register click events
+// OPEN THE GALLERY
 
-if (lightbox && lightboxImage) {
+galleryItems.forEach(function (item, index) {
 
-  galleryItems.forEach(function (item, index) {
+  item.addEventListener("click", function () {
 
-    item.addEventListener("click", function () {
+    showGalleryImage(index);
 
-      openGalleryImage(index);
+    if (lightbox && typeof lightbox.showModal === "function") {
 
-      if (typeof lightbox.showModal === "function") {
+      lightbox.showModal();
+      document.body.classList.add("modal-open");
 
-        lightbox.showModal();
+    } else {
 
-        document.body.classList.add("dialog-open");
+      window.open(item.dataset.full, "_blank", "noopener");
 
-      } else {
-
-        window.open(
-          item.dataset.image,
-          "_blank",
-          "noopener"
-        );
-
-      }
-
-    });
+    }
 
   });
 
-
-  // Close button
-
-  if (lightboxClose) {
-
-    lightboxClose.addEventListener("click", function () {
-      lightbox.close();
-    });
-
-  }
+});
 
 
-  // Click outside photo
+// CLOSE GALLERY
+
+if (lightboxClose && lightbox) {
+
+  lightboxClose.addEventListener("click", function () {
+    lightbox.close();
+  });
+
+}
+
+
+// CLICK OUTSIDE PHOTO TO CLOSE
+
+if (lightbox) {
 
   lightbox.addEventListener("click", function (event) {
 
@@ -280,37 +212,50 @@ if (lightbox && lightboxImage) {
 
   });
 
-
-  // Restore page scrolling
-
   lightbox.addEventListener("close", function () {
-
-    document.body.classList.remove("dialog-open");
-
-  });
-
-
-  // Keyboard controls
-
-  document.addEventListener("keydown", function (event) {
-
-    if (!lightbox.open) return;
-
-    if (event.key === "ArrowRight") {
-
-      changeGalleryImage(1);
-
-    }
-
-    if (event.key === "ArrowLeft") {
-
-      changeGalleryImage(-1);
-
-    }
-
+    document.body.classList.remove("modal-open");
   });
 
 }
 
 
-// END OF THE DOG CABIN JAVASCRIPT
+// NEXT IMAGE
+
+if (galleryNext) {
+
+  galleryNext.addEventListener("click", function () {
+    moveGallery(1);
+  });
+
+}
+
+
+// PREVIOUS IMAGE
+
+if (galleryPrev) {
+
+  galleryPrev.addEventListener("click", function () {
+    moveGallery(-1);
+  });
+
+}
+
+
+// KEYBOARD GALLERY CONTROLS
+
+document.addEventListener("keydown", function (event) {
+
+  if (!lightbox || !lightbox.open) return;
+
+  if (event.key === "ArrowRight") {
+    moveGallery(1);
+  }
+
+  if (event.key === "ArrowLeft") {
+    moveGallery(-1);
+  }
+
+});
+
+
+// END OF SCRIPT
